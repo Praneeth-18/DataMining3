@@ -1,4 +1,4 @@
-[MEDIUM ARTICLE LINK]()
+[MEDIUM ARTICLE LINK](https://medium.com/@saipraneethk181200/knowledge-discovery-in-databases-kdd-with-the-wine-quality-dataset-cde712711f03)
 
 **Wine Quality Analysis Using the KDD Process**:
 This project involves the Knowledge Discovery in Databases (KDD) process to analyze and predict wine quality based on its physicochemical properties. We utilize the expanded Wine Quality dataset with 1697 samples.
