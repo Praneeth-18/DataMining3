@@ -1,4 +1,4 @@
-[**MEDIUM ARTICLE LINK**]([https://youtu.be/bIeW2SjJ_Kk](https://medium.com/@saipraneethk181200/applying-crisp-dm-to-the-flower-species-dataset-88e648663ca9))
+[MEDIUM ARTICLE LINK]([https://youtu.be/bIeW2SjJ_Kk](https://medium.com/@saipraneethk181200/applying-crisp-dm-to-the-flower-species-dataset-88e648663ca9))
 
 
 **Data Analysis Using CRISP-DM**:
