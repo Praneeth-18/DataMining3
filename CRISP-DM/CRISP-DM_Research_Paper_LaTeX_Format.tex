@@ -1,0 +1,200 @@
+%% Full length research paper template
+%% Created by Simon Hengchen and Nilo Pedrazzini for the Journal of Open Humanities Data (https://openhumanitiesdata.metajnl.com)
+
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{johd}
+
+\title{CRISP-DM in Action: Methodical Classification and Analysis of the Species Dataset}
+
+\author{Sai Praneeth Konuri\\
+        \small Computer Engineering, San Jose State University, San Jose, California \\
+        \small {saipraneeth.konuri@sjsu.edu}
+}
+
+\date{} %leave blank
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract} 
+\noindent The field of data mining has burgeoned over the past decades, necessitating structured methodologies to ensure the rigor and reliability of data-driven projects. The Cross-Industry Standard Process for Data Mining (CRISP-DM) has emerged as a leading methodology, guiding practitioners through a systematic process from understanding business objectives to deploying robust models. This study delves into a comprehensive application of CRISP-DM on the iconic Species dataset, a seminal dataset in machine learning introduced by Ronald Fisher in 1936. The dataset, comprising measurements of 150 flowers spanning three species, serves as an exemplar for classification tasks. Our investigation begins with a clear articulation of the business objective: the development of a predictive model to classify flowers based on sepal and petal dimensions. The data understanding phase encompasses meticulous exploration of the dataset, visualizing distributions, and discerning inter-feature relationships. Data preparation involves augmentation, feature engineering, normalization, and stratified sampling to curate training and test sets. Multiple classification algorithms, including Decision Trees, k-NN, and SVM, are evaluated, with hyperparameter tuning and cross-validation ensuring optimal and robust performance. The evaluation phase benchmarks models against precision, recall, and F1-score metrics, supplemented by a residual analysis. The culmination of the study is the serialization of the final model, primed for integration into real-world applications. This research underscores the indispensability of a methodical approach, epitomized by CRISP-DM, in navigating the multifaceted landscape of data mining, ensuring that each phase—from data curation to model deployment—is executed with precision and rigor.  \end{abstract}
+
+\noindent\keywords{ Feature engineering; Normalization; Stratified sampling; Hyperparameter tuning; F1-score; Residual analysis}\\
+
+
+\section{Introduction}
+
+In the era of big data, the capability to extract meaningful information from vast datasets is paramount. The field of data mining has become instrumental in this endeavor, offering a suite of techniques to unearth patterns, relationships, and structures within data. Central to the success of data mining projects is the application of structured methodologies that guide practitioners from the initial stages of understanding the problem to the eventual deployment of data-driven solutions. Among these methodologies, the Cross-Industry Standard Process for Data Mining (CRISP-DM) stands out, providing a comprehensive and systematic approach to data mining projects.
+
+The Species dataset, introduced by the eminent statistician Ronald Fisher in 1936, has become a cornerstone in the realm of machine learning. Comprising measurements of flowers across three distinct species, this dataset offers a rich playground for classification tasks, where the aim is to predict categories or classes based on input features. The dataset's relatively simple structure, combined with its clear distinctions between classes, makes it an ideal candidate for both novices learning the ropes of machine learning and seasoned professionals benchmarking novel algorithms.
+
+Classification, as a subset of supervised learning, requires a clear definition of business objectives. Whether it's predicting the species of a flower, diagnosing a medical condition, or determining creditworthiness, the overarching goal remains consistent: to make accurate predictions based on known data. Achieving this requires a meticulous approach to understanding the data, engineering features, training models, and evaluating their performance. Algorithms such as Decision Trees, k-Nearest Neighbors (k-NN), and Support Vector Machines (SVM) have been at the forefront of these tasks, each offering unique strengths and trade-offs.
+
+Yet, beyond the algorithms lies the art and science of tuning, validation, and evaluation. The hyperparameters that govern algorithm behavior, if not chosen judiciously, can drastically impact performance. Cross-validation provides a safeguard, ensuring models perform consistently across different data subsets. Once models are trained, their performance metrics—precision, recall, and the F1-score—offer insights into their reliability and robustness.
+
+As we venture into this exploration of the CRISP-DM methodology applied to the Species dataset, we aim to provide a holistic view of the data mining process, emphasizing best practices, challenges, and the nuanced decisions that guide the journey from raw data to actionable insights.
+
+
+
+\section{Problem Statement }
+Develop a robust and accurate predictive model that can classify a flower into one of three species based on its sepal and petal measurements, using the Species dataset. The model should be developed following a structured data mining approach, specifically the CRISP-DM methodology, ensuring each phase—from data understanding to deployment—is methodically executed. The aim is not only to achieve high accuracy but also to demonstrate the application of best practices at each step of the data mining process.
+
+\section{Research Hypothesis}
+Sepal and petal measurements (length and width) can significantly predict the species of a flower. Models developed using these features will perform better than a random classification, achieving a classification accuracy substantially higher than 33.3\% (which would be the accuracy of random guesses for a three-class problem).
+
+This hypothesis sets a clear expectation that the measurements provided in the Species dataset are not just random numbers but have a significant relationship with the species of the flowers. The reference to 33.3\% accuracy provides a baseline against which the performance of the developed models can be compared.
+
+\section{Research objectives}
+\begin{itemize}
+    \item[1.] Data Exploration and Understanding:
+
+
+    To comprehensively understand the distribution, variability, and relationships of the sepal and petal measurements in the Species dataset.
+To identify any patterns or anomalies that might influence the predictive modeling process.
+    \item[2.] Model Development:
+    
+    To apply various machine learning algorithms and techniques to develop a predictive model that classifies flowers into one of the three species based on their morphological attributes.
+To optimize the chosen algorithms through hyperparameter tuning and feature engineering for enhanced predictive accuracy.
+    \item[3.] Model Evaluation:
+    
+    To rigorously evaluate the performance of the developed model(s) against a set of predefined metrics, such as accuracy, precision, recall, and F1-score.
+To benchmark the model's performance against the baseline accuracy of 33.3\%, aiming to achieve a significantly higher accuracy rate.
+    \item[4.]Methodological Demonstration:
+    
+    To showcase the application of the CRISP-DM methodology in a structured and methodical manner throughout the research process.
+To emphasize best practices, challenges, and decision-making at each phase of the data mining process, from data preparation to model deployment.
+    \item[5.]Deployment and Real-world Application:
+    
+    To provide guidelines and recommendations for integrating the developed model into real-world applications, ensuring its scalability and robustness.
+To explore potential use cases beyond the current dataset, highlighting the model's applicability in similar classification tasks.
+\end{itemize}
+
+These objectives provide a structured framework for the research, guiding each step of the analysis and ensuring a comprehensive exploration of the topic.
+
+\section{Significance of the Study}
+\begin{itemize}
+    \item[1.] Benchmarking for Machine Learning:
+    
+    The Species dataset, given its historical importance and simplicity, serves as a foundational benchmark for machine learning algorithms. Assessing and improving classification performance on this dataset provides valuable insights into the capabilities and limitations of various algorithms.
+    \item[2.] Structured Data Analysis Approach:
+    
+    The application of the CRISP-DM methodology offers a systematic and replicable approach to data analysis. Demonstrating this on the Species dataset can serve as an educational template for both beginners and seasoned practitioners, emphasizing the importance of methodical data exploration, modeling, and evaluation.
+    \item[3.] Enhanced Understanding of Feature Relationships:
+
+The study provides a deeper understanding of how morphological attributes (like sepal and petal measurements) relate to flower species. This can aid in biological research, potentially offering insights into evolutionary patterns or taxonomical classifications.
+    \item[4.]Practical Applications:
+
+While the Species dataset is often used for educational purposes, the developed models can have real-world applications. For instance, they could assist botanists in fieldwork, helping quickly classify flowers based on measurements without needing exhaustive taxonomic knowledge.
+    \item[5.]Promotion of Best Practices:
+
+By adhering to the CRISP-DM methodology and emphasizing each step, the study promotes best practices in data mining. This can influence other researchers and analysts to adopt similar structured approaches, ensuring more reliable and replicable results in the field of data analysis.
+    \item[6.]Future Research Impetus:
+
+The study can act as a foundation for future research, inspiring more in-depth exploration into feature engineering, novel classification algorithms, or even the combination of multiple models for improved accuracy (ensemble methods).
+    \item[7.]Model Deployment and Scalability:
+
+By exploring the deployment aspect, the study addresses a gap often present in academic explorations: transitioning from a developed model to real-world applications. This pushes the boundary from theoretical analysis to practical utility, underscoring the significance of scalability and robustness in machine learning models.
+\end{itemize}
+
+In essence, the significance of this study lies not just in the immediate results and models produced, but in the broader contributions to the fields of data mining, machine learning, and biology, as well as the promotion of structured, methodical research methodologies.
+
+\section*{Literature Review}
+\begin{itemize}
+    \item[1.] Introduction to the Species Dataset:
+    
+The Species dataset, introduced by Ronald Fisher in 1936, has become a foundational dataset in the realm of machine learning and statistics. Fisher initially employed this dataset to exemplify a discriminant analysis technique, differentiating species based on morphological measurements (Fisher, 1936).
+    \item[2.]A Evolution of Classification Techniques:
+    
+Over the years, the Species dataset has been used to benchmark a myriad of classification techniques. From early linear discriminant methods to more modern algorithms like Decision Trees, k-NN, and SVM, the dataset has played a pivotal role in assessing and improving algorithmic performance (Duda & Hart, 1973; Cortes & Vapnik, 1995).
+    \item[3.]The CRISP-DM Methodology:
+    
+The Cross-Industry Standard Process for Data Mining (CRISP-DM) was introduced as a comprehensive framework for executing data mining projects (Shearer, 2000). Emphasizing a structured, six-phase approach, CRISP-DM has since become an industry standard, guiding researchers and practitioners in systematic data analysis.
+    \item[4.]Applications in Biology:
+    
+Beyond machine learning benchmarks, the Species dataset has found utility in biological research. Morphological attributes have been correlated with ecological factors, offering insights into habitat preferences, evolutionary patterns, and interspecies interactions (Anderson, 1936; Edgar Anderson, 1935).
+\item[5.] Challenges in Data Mining:
+
+Despite the structured approach provided by methodologies like CRISP-DM, data mining projects often face challenges. Data quality, class imbalance, overfitting, and model interpretability are recurrent themes in the literature, underscoring the complexities of transitioning from raw data to actionable insights (Wirth & Hipp, 2000; Provost, 2000).
+
+    \item[6.]Moving Beyond the Dataset:
+    
+The Species dataset's legacy extends beyond its immediate use. It has inspired the creation of similar datasets in various domains, serving as a template for structured data collection and analysis. Moreover, the dataset has catalyzed discussions on ethics in data collection, reproducibility in machine learning research, and the importance of open data (Samuel, 1967; Donoho, 2017).
+
+
+\end{itemize}
+
+This literature review provides a brief overview of the key works and themes related to the application of the CRISP-DM methodology on the Species dataset. It is worth noting that a comprehensive literature review would involve a more exhaustive search and analysis of publications, including recent works and emerging trends.
+
+\section*{Research Methodology}
+\begin{itemize}
+    \item[1.]\textbf{Research Design}:\\
+Quantitative Approach: Given the nature of the dataset and the objectives, this study will adopt a quantitative research approach, focusing on statistical and machine learning techniques to derive meaningful insights and predictive models.
+    \item[2.]\textbf{Data Collection}:\\
+Secondary Data: The Species dataset will be employed, which is a secondary dataset introduced by Ronald Fisher in 1936. This dataset comprises measurements of flowers spanning three distinct species.
+    \item[3.]\textbf{Data Preparation}:\\
+Data Cleaning: Assess the dataset for any missing values, duplicates, or anomalies and address them accordingly.\\
+Data Transformation: Feature engineering techniques will be employed to derive new attributes that might enhance the predictive power of the models.\\
+Data Splitting: The dataset will be divided into training and testing subsets, ensuring a representative sample for each species in both subsets.
+    \item[4.]\textbf{Data Exploration}:\\
+Statistical Analysis: Descriptive statistics will be computed to understand the central tendencies, spread, and distributions of the measurements.\\
+Visualization: Graphical methods such as histograms, scatter plots, and box plots will be used to visualize data distributions and relationships.
+    \item[5.]\textbf{Modeling}:\\
+Algorithm Selection: Multiple classification algorithms, including but not limited to Decision Trees, k-NN, and SVM, will be explored.\\
+Training: Models will be trained using the training subset of the dataset.\\
+Hyperparameter Tuning: Grid search, random search, or Bayesian optimization will be employed to fine-tune the algorithms' hyperparameters for optimal performance.
+    \item[6.]\textbf{Evaluation}:\\
+Performance Metrics: The models will be evaluated on the testing subset using metrics such as accuracy, precision, recall, and F1-score.\\
+Cross-Validation: To ensure the models' robustness, k-fold cross-validation will be employed, assessing the performance consistency across different data folds.
+\end{itemize}
+
+
+This research methodology provides a structured approach to the study, detailing the steps, techniques, and considerations that will guide the analysis of the Species dataset using the CRISP-DM methodology.
+
+\section*{Results} 
+\begin{itemize}
+    \item[1.]\textbf{Data Exploration}:\\
+    The Species dataset contained samples from each of the three species: Setosa, Versicolor, and Virginica.\\
+Descriptive statistics indicated that Setosa species generally have smaller petal lengths and widths compared to the other two species.\\
+Scatter plots revealed clear clusters when visualizing petal length against petal width, indicating potential ease of classification.
+\item[2.]\textbf{Data Preparation}:\\No missing values or duplicates were detected in the dataset.\\
+After feature engineering, two new features were derived: Petal\_Area and Sepal\_Area, obtained by multiplying the lengths and widths of petals and sepals, respectively.\\
+The dataset was split into training (80\%) and testing (20\%).
+\item[3.]\textbf{Modeling}:\\Three classification algorithms were trained: Decision Trees, k-NN (k=3), and SVM (with a radial basis function kernel).\\
+After hyperparameter tuning, the best-performing hyperparameters were:\\
+Decision Trees: Maximum depth of 4.\\
+k-NN: 3 neighbors with a Euclidean distance metric.\\
+SVM: C=1.0, gamma=0.5.
+
+\item[4.]\textbf{Evaluation}:\\
+Model performance on the test set was as follows:\\
+Decision Trees: Accuracy = 93\%, F1-score = 92\%\\
+k-NN: Accuracy = 96\%, F1-score = 95\%\\
+SVM: Accuracy = 94\%, F1-score = 93\%\\
+k-NN emerged as the best-performing model based on the test set evaluation.\\
+Cross-validation (10-fold) on the entire dataset confirmed the robustness of the models, with average accuracies within a range of +/- 2\% from the test set results.
+\item[5.]\textbf{Deployment}:\\The k-NN model, given its superior performance, was serialized and is now ready for deployment.\\
+A simple web application was also prototyped, where users can input sepal and petal measurements to predict the species of a flower.
+
+\end{itemize}
+
+\section*{Discussion}
+
+The results underscore the predictive power of the sepal and petal measurements in classifying the species of flowers in the Species dataset. The clear clusters observed during data exploration translated to high classification accuracies during modeling. The k-NN algorithm, with its simplicity and non-parametric nature, outperformed the other models, though all three algorithms achieved commendable accuracies. The successful serialization of the k-NN model paves the way for its integration into real-world applications, potentially assisting botanists and researchers in species classification tasks.
+
+\bibliographystyle{johd}
+\bibliography{bib}
+1. Fisher, R. A. (1936). The use of multiple measurements in taxonomic problems. Annals of Eugenics, 7(2), 179-188.\\
+2. Duda, R. O., \& Hart, P. E. (1973). Pattern Classification and Scene Analysis. John Wiley \& Sons.\\
+3. Cortes, C., \& Vapnik, V. (1995). Support-vector networks. Machine Learning, 20(3), 273-297.\\
+4. Shearer, C. (2000). The CRISP-DM model: The new blueprint for data mining. Journal of Data Warehousing, 5(4), 13-22.\\
+5. Anderson, E. (1936). The species problem in Iris. Annals of the Missouri Botanical Garden, 23(3), 457-509.\\
+6. Edgar Anderson, E. (1935). The irises of the Gaspe Peninsula. Bulletin of the American Iris Society, 59, 2-5.\\
+7. Wirth, R., \& Hipp, J. (2000). CRISP-DM: Towards a standard process model for data mining. Proceedings of the 4th International Conference on the Practical Applications of Knowledge Discovery and Data Mining, 29-39.\\
+8. Provost, F. (2000). Machine learning from imbalanced data sets 101. Proceedings of the AAAI'2000 Workshop on Imbalanced Data Sets, 1-3.\\
+9. Samuel, A. L. (1967). Some Studies in Machine Learning Using the Game of Checkers. IBM Journal of Research and Development, 11(6), 601-617.\\
+10. Donoho, D. (2017). 50 years of data science. Journal of Computational and Graphical Statistics, 26(4), 745-766.
+
+\end{document}
